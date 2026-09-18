@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width,
+          initial-scale=1.0">
+
+    <title>
+        Fortuner Login
+    </title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static',
+          filename='css/style.css') }}">
+
+</head>
+
+
+<body class="login-page">
+
+
+<div class="login-card">
+
+
+    <a href="/"
+       class="logo">
+
+        TOYOTA
+        <span>FORTUNER</span>
+
+    </a>
+
+
+    <p class="small-title">
+
+        WELCOME BACK
+
+    </p>
+
+
+    <h1>
+        Login to Explore
+    </h1>
+
+
+    <p class="muted">
+
+        Enter your details to continue
+        your Fortuner experience.
+
+    </p>
+
+
+    <form id="loginForm">
+
+
+        <label>
+            Email
+        </label>
+
+
+        <input
+        id="email"
+        type="email"
+        placeholder="you@example.com"
+        required>
+
+
+        <label>
+            Password
+        </label>
+
+
+        <input
+        id="password"
+        type="password"
+        placeholder="Password"
+        required>
+
+
+        <button
+        class="primary-btn full"
+        type="submit">
+
+            Login
+
+        </button>
+
+
+        <p id="loginMessage"
+           class="message">
+        </p>
+
+
+    </form>
+
+
+    <a href="/"
+       class="back-link">
+
+        ← Back to Website
+
+    </a>
+
+
+</div>
+
+
+<script>
+
+document
+.getElementById("loginForm")
+.addEventListener("submit",
+async function(event) {
+
+    event.preventDefault();
+
+
+    const email =
+        document.getElementById("email").value;
+
+
+    const password =
+        document.getElementById("password").value;
+
+
+    const response =
+        await fetch("/login", {
+
+            method: "POST",
+
+            headers: {
+                "Content-Type":
+                "application/json"
+            },
+
+            body: JSON.stringify({
+
+                email: email,
+
+                password: password
+
+            })
+
+        });
+
+
+    const data =
+        await response.json();
+
+
+    const message =
+        document.getElementById(
+            "loginMessage"
+        );
+
+
+    message.textContent =
+        data.message;
+
+
+    if (data.status === "success") {
+
+        message.className =
+            "message success";
+
+    }
+
+    else {
+
+        message.className =
+            "message error";
+
+    }
+
+});
+
+</script>
+
+
+</body>
+
+</html>
