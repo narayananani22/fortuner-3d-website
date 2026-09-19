@@ -1,0 +1,700 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Fortuner 3D Experience</title>
+
+    <!-- CSS -->
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='css/style.css') }}">
+
+</head>
+
+
+<body>
+
+
+<!-- =====================================================
+     NAVBAR
+===================================================== -->
+
+<header class="navbar">
+
+    <div class="logo">
+
+        <strong>TOYOTA</strong>
+
+        <span>FORTUNER</span>
+
+    </div>
+
+
+    <nav>
+
+        <a href="#home">
+            Home
+        </a>
+
+        <a href="#viewer">
+            3D View
+        </a>
+
+        <a href="#features">
+            Features
+        </a>
+
+        <a href="#gallery">
+            Gallery
+        </a>
+
+        <a href="{{ url_for('login') }}"
+           class="login-btn">
+
+            Login
+
+        </a>
+
+    </nav>
+
+</header>
+
+
+
+<!-- =====================================================
+     HERO SECTION
+===================================================== -->
+
+<section id="home" class="hero">
+
+    <div class="hero-content">
+
+        <p class="small-title">
+            LEGENDARY SUV EXPERIENCE
+        </p>
+
+
+        <h1>
+
+            TOYOTA
+
+            <br>
+
+            <strong>FORTUNER</strong>
+
+        </h1>
+
+
+        <p class="hero-text">
+
+            Explore the Toyota Fortuner in an
+            interactive 3D-style experience.
+            Touch the highlighted parts to
+            discover their names and details.
+
+        </p>
+
+
+        <a href="#viewer"
+           class="primary-btn">
+
+            Explore 3D Car
+
+        </a>
+
+    </div>
+
+
+    <div class="hero-car">
+
+        <img
+            src="{{ url_for('static',
+            filename='images/nani221.jpg') }}"
+            alt="Toyota Fortuner">
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     3D VIEWER
+===================================================== -->
+
+<section id="viewer"
+         class="viewer-section">
+
+
+    <div class="section-heading">
+
+        <p class="small-title">
+            INTERACTIVE MODEL
+        </p>
+
+
+        <h2>
+            Touch the Car Parts
+        </h2>
+
+
+        <p>
+
+            Drag the vehicle to rotate it.
+            Click a blue hotspot to see
+            the part information.
+
+        </p>
+
+    </div>
+
+
+
+    <div class="viewer-card">
+
+
+        <!-- CAR VIEW -->
+
+        <div class="viewer-stage"
+             id="stage">
+
+
+            <div class="car-model"
+                 id="carModel">
+
+
+                <img
+                    src="{{ url_for('static',
+                    filename='images/nani221.jpg') }}"
+                    alt="Interactive Toyota Fortuner"
+                    draggable="false"
+                >
+
+
+
+                <!-- ==========================
+                     HOTSPOTS
+                =========================== -->
+
+
+                <button
+                    type="button"
+                    class="hotspot roof"
+                    data-part="roof"
+                    title="Roof">
+
+                    +
+
+                </button>
+
+
+
+                <button
+                    type="button"
+                    class="hotspot door"
+                    data-part="door"
+                    title="Door">
+
+                    +
+
+                </button>
+
+
+
+                <button
+                    type="button"
+                    class="hotspot mirror"
+                    data-part="mirror"
+                    title="Side Mirror">
+
+                    +
+
+                </button>
+
+
+
+                <button
+                    type="button"
+                    class="hotspot headlight"
+                    data-part="headlight"
+                    title="Headlight">
+
+                    +
+
+                </button>
+
+
+
+                <button
+                    type="button"
+                    class="hotspot wheel"
+                    data-part="wheel"
+                    title="Wheel">
+
+                    +
+
+                </button>
+
+
+
+                <button
+                    type="button"
+                    class="hotspot bumper"
+                    data-part="bumper"
+                    title="Bumper">
+
+                    +
+
+                </button>
+
+
+
+                <button
+                    type="button"
+                    class="hotspot grille"
+                    data-part="grille"
+                    title="Grille">
+
+                    +
+
+                </button>
+
+
+
+                <button
+                    type="button"
+                    class="hotspot window"
+                    data-part="window"
+                    title="Window">
+
+                    +
+
+                </button>
+
+
+            </div>
+
+        </div>
+
+
+
+        <!-- =================================================
+             PART INFORMATION
+        ================================================== -->
+
+        <aside class="part-panel">
+
+            <p class="panel-label">
+                SELECTED PART
+            </p>
+
+
+            <div class="part-icon">
+                ⚙
+            </div>
+
+
+            <h3 id="partName">
+                Choose a Part
+            </h3>
+
+
+            <p id="partDescription">
+
+                Touch one of the glowing
+                points on the car to see
+                the part name and details.
+
+            </p>
+
+
+
+            <div class="spec-row">
+
+                <span>
+                    Interaction
+                </span>
+
+                <b>
+                    Touch / Click
+                </b>
+
+            </div>
+
+
+
+            <div class="spec-row">
+
+                <span>
+                    Rotation
+                </span>
+
+                <b>
+                    Drag
+                </b>
+
+            </div>
+
+
+
+            <div class="spec-row">
+
+                <span>
+                    Backend
+                </span>
+
+                <b>
+                    Flask
+                </b>
+
+            </div>
+
+        </aside>
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     FEATURES
+===================================================== -->
+
+<section id="features"
+         class="features">
+
+
+    <div class="feature-card">
+
+        <span>01</span>
+
+        <h3>
+            3D Viewer
+        </h3>
+
+        <p>
+
+            Interactive Fortuner viewer
+            with drag rotation.
+
+        </p>
+
+    </div>
+
+
+
+    <div class="feature-card">
+
+        <span>02</span>
+
+        <h3>
+            Part Explorer
+        </h3>
+
+        <p>
+
+            Click the glowing hotspots
+            to view car part information.
+
+        </p>
+
+    </div>
+
+
+
+    <div class="feature-card">
+
+        <span>03</span>
+
+        <h3>
+            Flask Backend
+        </h3>
+
+        <p>
+
+            Python Flask handles
+            the website backend.
+
+        </p>
+
+    </div>
+
+
+
+    <div class="feature-card">
+
+        <span>04</span>
+
+        <h3>
+            Responsive
+        </h3>
+
+        <p>
+
+            Designed for desktop,
+            tablet and mobile.
+
+        </p>
+
+    </div>
+
+
+</section>
+
+
+
+<!-- =====================================================
+     GALLERY
+===================================================== -->
+
+<section id="gallery"
+         class="gallery-section">
+
+
+    <div class="section-heading">
+
+        <p class="small-title">
+            FORTUNER GALLERY
+        </p>
+
+
+        <h2>
+            Explore the
+            <span>Design</span>
+        </h2>
+
+    </div>
+
+
+
+    <div class="gallery">
+
+
+        <!-- ==========================================
+             EXTERIOR
+        =========================================== -->
+
+        <div class="gallery-card">
+
+
+            <img
+                src="{{ url_for('static',
+                filename='images/exterior.jpg') }}"
+                alt="Fortuner Exterior">
+
+
+            <div class="gallery-overlay">
+
+                <div class="gallery-line"></div>
+
+
+                <div class="gallery-info">
+
+                    <div class="gallery-icon">
+                        🚙
+                    </div>
+
+
+                    <div>
+
+                        <h3>
+                            Exterior
+                        </h3>
+
+
+                        <p>
+                            Bold design.
+                            Powerful presence.
+                        </p>
+
+                    </div>
+
+
+                    <div class="gallery-arrow">
+                        →
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+
+        <!-- ==========================================
+             DESIGN / INTERIOR
+        =========================================== -->
+
+        <div class="gallery-card">
+
+
+            <img
+                src="{{ url_for('static',
+                filename='images/design.jpg') }}"
+                alt="Fortuner Interior Design">
+
+
+            <div class="gallery-overlay">
+
+                <div class="gallery-line"></div>
+
+
+                <div class="gallery-info">
+
+                    <div class="gallery-icon">
+                        🛋️
+                    </div>
+
+
+                    <div>
+
+                        <h3>
+                            Design
+                        </h3>
+
+
+                        <p>
+                            Premium interiors.
+                            Ultimate comfort.
+                        </p>
+
+                    </div>
+
+
+                    <div class="gallery-arrow">
+                        →
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+
+        <!-- ==========================================
+             WHEEL
+        =========================================== -->
+
+        <div class="gallery-card">
+
+
+            <img
+                src="{{ url_for('static',
+                filename='images/wheel.jpg') }}"
+                alt="Fortuner Wheel">
+
+
+            <div class="gallery-overlay">
+
+                <div class="gallery-line"></div>
+
+
+                <div class="gallery-info">
+
+                    <div class="gallery-icon">
+                        ⚙️
+                    </div>
+
+
+                    <div>
+
+                        <h3>
+                            Wheel
+                        </h3>
+
+
+                        <p>
+                            Built for every terrain.
+                        </p>
+
+                    </div>
+
+
+                    <div class="gallery-arrow">
+                        →
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     LOGIN CTA
+===================================================== -->
+
+<section class="login-cta">
+
+    <div>
+
+        <p class="small-title">
+            YOUR FORTUNER JOURNEY
+        </p>
+
+
+        <h2>
+            Ready to Explore?
+        </h2>
+
+    </div>
+
+
+    <a href="{{ url_for('login') }}"
+       class="primary-btn">
+
+        Login / Continue
+
+    </a>
+
+</section>
+
+
+
+<!-- =====================================================
+     FOOTER
+===================================================== -->
+
+<footer>
+
+    <p>
+        TOYOTA FORTUNER 3D EXPERIENCE
+    </p>
+
+
+    <p>
+        HTML • CSS • JavaScript • Python Flask
+    </p>
+
+</footer>
+
+
+
+<!-- =====================================================
+     JAVASCRIPT
+===================================================== -->
+
+<script src="{{ url_for('static',
+              filename='js/script.js') }}">
+</script>
+
+
+</body>
+
+</html>
